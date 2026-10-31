@@ -9,11 +9,36 @@ pour Claude Code / Claude.
 
 ## Installation
 
-### Claude Code (marketplace de plugins)
+### Vercel Skills CLI (recommandé)
+
+```bash
+# Installer toutes les skills
+npx skills add mborne/skills
+
+# Installer une skill spécifique
+npx skills add mborne/skills --skill marp-geodata
+```
+
+> Tant que le dépôt est privé, l'installation nécessite un accès Git
+> authentifié à `github.com/mborne/skills`.
+
+### Claude Code
+
+```bash
+npx skills add mborne/skills -a claude-code
+```
+
+Alternative via la marketplace de plugins Claude Code :
 
 ```text
 /plugin marketplace add mborne/skills
 /plugin install mborne-skills@mborne-skills
+```
+
+### OpenCode
+
+```bash
+npx skills add mborne/skills -a opencode
 ```
 
 ### Manuelle
