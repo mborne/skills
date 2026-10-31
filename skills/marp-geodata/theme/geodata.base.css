@@ -1,0 +1,607 @@
+/*
+ * @theme geodata
+ * @author Mickael Borne
+ * @size 16:9 1280px 720px
+ * @size 4:3 960px 720px
+ *
+ * Thème Marp inspiré de la charte graphique de Géodata Paris (octobre 2025) :
+ * https://geodata-paris.fr/fr/charte-graphique-et-outils
+ *
+ * NE PAS ÉDITER theme/geodata.css : il est généré depuis ce fichier par
+ * scripts/build-theme.py (qui embarque logos et habillages en data URI).
+ *
+ * Classes de diapositives (<!-- _class: ... -->) :
+ *   titre     couverture sur aplat bleu (logo blanc, courbes, titre Raleway extra-light)
+ *   chapitre  intercalaire de partie sur aplat bleu
+ *   sable     intercalaire / mise en avant sur aplat secondaire « sable doré »
+ *   violet    intercalaire / mise en avant sur aplat secondaire « violet foncé »
+ *   aside     contenu avec colonne étroite à gauche (le 1er blockquote)
+ *   colonnes  contenu sur deux colonnes (séparées par <div class="col">, nécessite --html)
+ *   centre    contenu centré (citation, chiffre clé)
+ *   fin       diapositive de clôture sur aplat bleu
+ *   plein     image pleine page (sans logo ni pagination)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,300;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500&display=swap');
+
+section {
+  /* Couleur principale */
+  --gp-bleu: #2b317f;
+  /* Accents sur aplat bleu */
+  --gp-jaune: #ded41f;
+  --gp-jaune-pale: #f4f2bc;
+  /* Accents sur fond blanc */
+  --gp-mauve: #62538b;
+  --gp-violet: #9c5099;
+  --gp-brique: #b46747;
+  --gp-brun: #583811;
+  --gp-orange: #e17e0a;
+  --gp-magenta: #de2285;
+  --gp-framboise: #b54663;
+  --gp-taupe: #8e6f55;
+  --gp-olive: #988c4c;
+  --gp-jaune-sable: #e9e48b;
+  /* Couleurs secondaires (aplats sur grandes surfaces) */
+  --gp-sable: #fac18a;
+  --gp-violet-fonce: #38235b;
+  /* Neutres */
+  --gp-texte: #4a4a4a;
+  --gp-gris-clair: #eef0f6;
+
+  --gp-titre: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --gp-labeur: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --gp-mono: 'Roboto Mono', 'DejaVu Sans Mono', monospace;
+
+  --gp-marge-x: 90px;
+
+  width: 1280px;
+  height: 720px;
+  box-sizing: border-box;
+  padding: 150px var(--gp-marge-x) 80px var(--gp-marge-x);
+  font-family: var(--gp-labeur);
+  font-size: 26px;
+  line-height: 1.45;
+  color: var(--gp-texte);
+  background-color: #ffffff;
+  /* Logo couleur en haut à gauche + filet bleu en bas à droite (gabarit PowerPoint de la charte) */
+  background-image: __LOGO_COULEUR__, linear-gradient(var(--gp-bleu), var(--gp-bleu));
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50px 40px, right 60px bottom 34px;
+  background-size: 160px auto, 64px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* ---------- Titres ---------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--gp-titre);
+  color: var(--gp-bleu);
+  margin: 0 0 0.35em 0;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: 54px;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* Chapô sous le titre */
+h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: -0.2em;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h5, h6 {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+/* Le gras dans un titre extra-light : principe « Les forêts françaises / face au défi » */
+h1 strong, h2 strong {
+  font-weight: 700;
+}
+
+h2 + h3 {
+  margin-top: -0.15em;
+}
+
+/* ---------- Texte courant ---------- */
+
+p, ul, ol, table, pre, blockquote {
+  margin: 0 0 0.6em 0;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--gp-bleu);
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: var(--gp-bleu);
+  text-decoration-color: var(--gp-violet);
+  text-underline-offset: 3px;
+}
+
+mark {
+  background: var(--gp-jaune-pale);
+  color: inherit;
+  padding: 0 0.15em;
+}
+
+/* Puces « flèche » en couleur d'accent (gabarit PowerPoint) */
+ul {
+  padding-left: 1.4em;
+}
+
+ul > li {
+  list-style: none;
+  position: relative;
+}
+
+ul > li::before {
+  content: '➔';
+  color: var(--gp-violet);
+  position: absolute;
+  left: -1.4em;
+  font-size: 0.85em;
+  top: 0.08em;
+}
+
+ul ul > li::before {
+  content: '–';
+  color: var(--gp-bleu);
+}
+
+ol {
+  padding-left: 1.4em;
+}
+
+ol > li::marker {
+  color: var(--gp-violet);
+  font-family: var(--gp-titre);
+  font-weight: 700;
+}
+
+li + li {
+  margin-top: 0.3em;
+}
+
+li > ul, li > ol {
+  margin-top: 0.25em;
+  margin-bottom: 0;
+  font-size: 0.9em;
+}
+
+/* ---------- Code ---------- */
+
+code {
+  font-family: var(--gp-mono);
+  font-size: 0.85em;
+  background: var(--gp-gris-clair);
+  color: var(--gp-bleu);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--gp-gris-clair);
+  border-left: 5px solid var(--gp-bleu);
+  padding: 16px 22px;
+  font-size: 20px;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 1em;
+  color: #1f2340;
+}
+
+/* Coloration syntaxique (highlight.js) dans la gamme de la charte */
+.hljs-keyword, .hljs-selector-tag, .hljs-built_in { color: var(--gp-bleu); font-weight: 500; }
+.hljs-string, .hljs-attr-value { color: var(--gp-brique); }
+.hljs-number, .hljs-literal { color: var(--gp-violet); }
+.hljs-comment, .hljs-quote { color: #8a8aa0; font-style: italic; }
+.hljs-title, .hljs-section, .hljs-function { color: var(--gp-mauve); font-weight: 500; }
+.hljs-attr, .hljs-attribute, .hljs-variable, .hljs-property { color: var(--gp-framboise); }
+.hljs-meta, .hljs-type { color: var(--gp-orange); }
+
+/* ---------- Tableaux ---------- */
+
+table {
+  border-collapse: collapse;
+  font-size: 22px;
+  width: auto;
+}
+
+th {
+  background: var(--gp-bleu);
+  color: #fff;
+  font-family: var(--gp-titre);
+  font-weight: 700;
+  text-align: left;
+  padding: 8px 16px;
+}
+
+td {
+  padding: 7px 16px;
+  border-bottom: 1px solid #d5d7e6;
+}
+
+tr:nth-child(even) td {
+  background: #f7f7fb;
+}
+
+/* ---------- Citations ---------- */
+
+blockquote {
+  border-left: 5px solid var(--gp-violet);
+  padding: 0.2em 0 0.2em 0.9em;
+  margin-left: 0;
+  font-family: var(--gp-titre);
+  font-weight: 600;
+  color: var(--gp-bleu);
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Images ---------- */
+
+img {
+  max-width: 100%;
+  background-color: transparent;
+}
+
+figure {
+  margin: 0;
+}
+
+/* ---------- En-tête, pied de page, pagination ---------- */
+
+header {
+  position: absolute;
+  top: 46px;
+  left: 260px;
+  right: 200px;
+  font-family: var(--gp-titre);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gp-bleu);
+  text-align: right;
+}
+
+footer {
+  position: absolute;
+  left: var(--gp-marge-x);
+  bottom: 26px;
+  font-family: var(--gp-titre);
+  font-size: 15px;
+  color: var(--gp-bleu);
+}
+
+/* Pagination « 02 / 35 » en haut à droite, séparée par un filet */
+section[data-marpit-pagination]::after {
+  content: attr(data-marpit-pagination) '\A' attr(data-marpit-pagination-total);
+  white-space: pre;
+  position: absolute;
+  top: 34px;
+  right: 60px;
+  left: auto;
+  bottom: auto;
+  box-sizing: border-box;
+  width: 64px;
+  height: 84px;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  font-family: var(--gp-titre);
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 42px;
+  color: var(--gp-mauve);
+  background: linear-gradient(var(--gp-bleu), var(--gp-bleu)) no-repeat 0 41px / 100% 1px;
+}
+
+/* ---------- Classes utilitaires (avec --html) ---------- */
+
+.bleu { color: var(--gp-bleu); }
+.violet { color: var(--gp-violet); }
+.mauve { color: var(--gp-mauve); }
+.orange { color: var(--gp-orange); }
+.magenta { color: var(--gp-magenta); }
+.brique { color: var(--gp-brique); }
+.framboise { color: var(--gp-framboise); }
+.jaune { color: var(--gp-jaune); }
+.petit { font-size: 0.75em; }
+.source { font-size: 15px; color: #77778a; position: absolute; bottom: 58px; left: var(--gp-marge-x); }
+
+/* Chiffre clé */
+.chiffre {
+  font-family: var(--gp-titre);
+  font-weight: 200;
+  font-size: 110px;
+  line-height: 1.1;
+  color: var(--gp-bleu);
+  margin-bottom: 0.25em;
+}
+
+/* ================================================================
+ * Diapositives sur aplat bleu : titre, chapitre, fin
+ * ================================================================ */
+
+section.titre,
+section.chapitre,
+section.fin {
+  background-color: var(--gp-bleu);
+  color: #fff;
+}
+
+section.titre h1, section.titre h2, section.titre h3, section.titre h4, section.titre h5, section.titre h6,
+section.chapitre h1, section.chapitre h2, section.chapitre h3, section.chapitre h4, section.chapitre h5, section.chapitre h6,
+section.fin h1, section.fin h2, section.fin h3, section.fin h4, section.fin h5, section.fin h6,
+section.titre strong, section.chapitre strong, section.fin strong,
+section.titre a, section.chapitre a, section.fin a,
+section.titre footer, section.chapitre footer, section.fin footer,
+section.titre header, section.chapitre header, section.fin header {
+  color: #fff;
+}
+
+section.titre mark, section.chapitre mark, section.fin mark {
+  background: none;
+  color: var(--gp-jaune);
+}
+
+section.titre ul > li::before, section.chapitre ul > li::before, section.fin ul > li::before {
+  color: var(--gp-jaune);
+}
+
+section.titre::after, section.chapitre::after, section.fin::after,
+section.titre[data-marpit-pagination]::after,
+section.chapitre[data-marpit-pagination]::after,
+section.fin[data-marpit-pagination]::after {
+  display: none;
+}
+
+section.titre blockquote, section.chapitre blockquote, section.fin blockquote {
+  color: #fff;
+  border-left-color: var(--gp-jaune);
+}
+
+/* Couverture : logo blanc en haut à gauche, courbes en haut et en bas,
+ * titre aligné sur la colonne de droite (gabarit PowerPoint de la charte). */
+section.titre {
+  padding: 250px 110px 70px 480px;
+  justify-content: flex-start;
+  background-image: __LOGO_BLANC__, __LIGNES_BLANC__, __LIGNES_BAS_BLANC__;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 70px 60px, 480px 40px, 480px 600px;
+  background-size: 190px auto, 690px 190px, 690px 130px;
+}
+
+/* Surtitre (ex. « colloque recherche ») : h6 placé avant le h1 */
+section.titre h6 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0.6em;
+}
+
+section.titre h1 {
+  font-size: 62px;
+  font-weight: 200;
+  line-height: 1.1;
+  margin-bottom: 0.4em;
+}
+
+section.titre h1 strong {
+  font-weight: 700;
+}
+
+/* Sous-titre */
+section.titre h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+/* Date / lieu / auteur·ices : paragraphes alignés à droite en gras */
+section.titre p {
+  font-family: var(--gp-titre);
+  font-weight: 700;
+  font-size: 20px;
+  text-align: right;
+  margin: 0 0 0.2em 0;
+}
+
+section.titre footer {
+  left: 70px;
+  bottom: 50px;
+  font-weight: 600;
+}
+
+/* Intercalaire de partie */
+section.chapitre {
+  padding: 60px 110px 220px 480px;
+  justify-content: center;
+  background-image: __LOGO_BLANC__, __LIGNES_BAS_BLANC__;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 70px 60px, 480px 560px;
+  background-size: 190px auto, 690px 130px;
+}
+
+section.chapitre h1 {
+  font-size: 58px;
+  font-weight: 200;
+}
+
+section.chapitre h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+/* Numéro de partie (ex. « 01 ») : h6 */
+section.chapitre h6 {
+  font-size: 90px;
+  font-weight: 200;
+  line-height: 1;
+  color: var(--gp-jaune);
+  margin-bottom: 0.2em;
+}
+
+/* Clôture */
+section.fin {
+  padding: 200px 110px 80px 110px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: __LOGO_BLANC__, __LIGNES_BLANC__;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center 70px, center 560px;
+  background-size: 210px auto, 900px 220px;
+}
+
+section.fin h1 {
+  font-weight: 200;
+}
+
+/* ================================================================
+ * Aplats secondaires : sable doré, violet foncé
+ * ================================================================ */
+
+section.sable {
+  background-color: var(--gp-sable);
+  color: var(--gp-violet-fonce);
+  background-image: __LOGO_COULEUR__;
+  background-size: 160px auto;
+  background-position: 50px 40px;
+  background-repeat: no-repeat;
+}
+
+section.sable h1, section.sable h2, section.sable h3,
+section.sable strong, section.sable footer, section.sable header {
+  color: var(--gp-violet-fonce);
+}
+
+section.sable ul > li::before {
+  color: var(--gp-violet-fonce);
+}
+
+section.violet {
+  background-color: var(--gp-violet-fonce);
+  color: #fff;
+  background-image: __LOGO_BLANC__;
+  background-size: 160px auto;
+  background-position: 50px 40px;
+  background-repeat: no-repeat;
+}
+
+section.violet h1, section.violet h2, section.violet h3,
+section.violet strong, section.violet footer, section.violet header, section.violet a {
+  color: #fff;
+}
+
+section.violet ul > li::before, section.violet mark {
+  color: var(--gp-sable);
+  background: none;
+}
+
+section.sable, section.violet {
+  justify-content: center;
+}
+
+section.violet blockquote {
+  color: #fff;
+  border-left-color: var(--gp-sable);
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+section.sable blockquote {
+  color: var(--gp-violet-fonce);
+  border-left-color: var(--gp-violet-fonce);
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+section.sable[data-marpit-pagination]::after, section.violet[data-marpit-pagination]::after {
+  color: inherit;
+  background: linear-gradient(currentColor, currentColor) no-repeat center / 100% 1px;
+}
+
+/* ================================================================
+ * Mises en page de contenu
+ * ================================================================ */
+
+/* Colonne étroite à gauche (accroche, sommaire) : 1er blockquote de la diapo */
+section.aside {
+  padding-left: 440px;
+}
+
+section.aside > blockquote:first-of-type {
+  position: absolute;
+  top: 150px;
+  left: var(--gp-marge-x);
+  width: 290px;
+  border: none;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.9;
+  font-weight: 700;
+}
+
+/* Deux colonnes : <div class="col">…</div><div class="col">…</div> */
+section.colonnes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 60px;
+  align-content: start;
+}
+
+section.colonnes > h1,
+section.colonnes > h2,
+section.colonnes > h3 {
+  grid-column: 1 / -1;
+}
+
+section.centre {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 110px;
+}
+
+section.centre ul, section.centre ol {
+  text-align: left;
+}
+
+/* Diapositive « image pleine page » : laisser le logo et la pagination de côté */
+section.plein {
+  background-image: none;
+}
+
+section.plein::after,
+section.plein[data-marpit-pagination]::after {
+  display: none;
+}

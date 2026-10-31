@@ -1,0 +1,21 @@
+{
+  "name": "mborne-skills",
+  "owner": {
+    "name": "Mickael Borne"
+  },
+  "metadata": {
+    "description": "Skills de Mickael Borne",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "mborne-skills",
+      "description": "Collection de skills : marp-geodata (présentations Marp à la charte Géodata Paris).",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/marp-geodata"
+      ]
+    }
+  ]
+}

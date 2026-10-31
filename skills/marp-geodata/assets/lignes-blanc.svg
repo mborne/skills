@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" fill="none" stroke="#ffffff" stroke-linejoin="round" stroke-linecap="butt">
+<polyline points="0,25.1 90,20.2 200,16.2 300,0.0 380,13.0 470,26.2 560,17.6 640,30.2" stroke-width="1.5" stroke-opacity="0.35"/>
+<polyline points="0,40.0 90,50.3 200,25.1 300,25.6 380,34.3 470,60.5 560,42.3 640,44.8" stroke-width="2.4" stroke-opacity="0.43"/>
+<polyline points="0,77.0 90,84.7 200,62.3 300,58.0 380,71.8 470,63.2 560,82.5 640,69.0" stroke-width="3.2" stroke-opacity="0.51"/>
+<polyline points="0,88.3 90,87.7 200,80.6 300,91.6 380,77.8 470,97.8 560,99.0 640,93.2" stroke-width="4.1" stroke-opacity="0.59"/>
+<polyline points="0,118.9 90,109.4 200,100.4 300,103.2 380,112.5 470,116.6 560,114.4 640,119.7" stroke-width="5.0" stroke-opacity="0.68"/>
+<polyline points="0,139.2 90,136.5 200,138.4 300,136.7 380,128.8 470,141.3 560,140.4 640,146.6" stroke-width="5.9" stroke-opacity="0.76"/>
+<polyline points="0,165.5 90,158.7 200,164.9 300,151.6 380,156.2 470,166.0 560,156.6 640,161.8" stroke-width="6.8" stroke-opacity="0.84"/>
+<polyline points="0,177.9 90,186.2 200,185.3 300,182.7 380,186.7 470,181.5 560,186.6 640,185.3" stroke-width="7.6" stroke-opacity="0.92"/>
+<polyline points="0,206.9 90,205.5 200,209.8 300,211.0 380,205.7 470,207.8 560,201.1 640,208.3" stroke-width="8.5" stroke-opacity="1.00"/>
+</svg>
