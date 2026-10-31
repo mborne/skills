@@ -3,6 +3,20 @@
 Collection d'[Agent Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
 pour Claude Code / Claude.
 
+> [!WARNING]
+> **Dépôt expérimental.** Ces skills sont en cours d'élaboration : leur
+> contenu, leur structure et leur nom peuvent changer sans préavis. Elles ne
+> constituent pas des outils officiels de Géodata Paris, de l'IGN ou de tout
+> autre organisme cité.
+
+> [!CAUTION]
+> **Contenu généré par IA.** Le contenu de ce dépôt (skills, thèmes, scripts,
+> documentation) a été produit en grande partie avec l'assistance d'une IA
+> (Claude Code) puis relu. Il peut contenir des erreurs ou des
+> interprétations approximatives des chartes et documents sources : vérifiez
+> les résultats avant toute diffusion et référez-vous toujours aux documents
+> officiels.
+
 | Skill | Description |
 | --- | --- |
 | [marp-geodata](skills/marp-geodata/SKILL.md) | Présentations [Marp](https://marp.app/) conformes à la [charte graphique de Géodata Paris](https://geodata-paris.fr/fr/charte-graphique-et-outils) (thème `geodata` + règles d'écriture de la marque). |
@@ -66,3 +80,14 @@ Le thème est une interprétation de la charte (octobre 2025) pour Marp ; il ne
 remplace pas le modèle PowerPoint officiel. Les logos de `assets/` sont la
 propriété de Géodata Paris et sont repris tels que publiés sur
 <https://geodata-paris.fr/fr/charte-graphique-et-outils>.
+
+## Licence
+
+Le code et la documentation de ce dépôt sont distribués sous licence
+[MIT](LICENSE).
+
+Cette licence **ne s'applique pas** aux logos et marques de tiers
+(notamment `skills/marp-geodata/assets/geodata-paris-logo-*.png`, également
+embarqués dans `skills/marp-geodata/theme/geodata.css`), qui restent la
+propriété de leurs détenteurs et dont l'usage est soumis à leurs règles
+(voir la [charte graphique de Géodata Paris](https://geodata-paris.fr/fr/charte-graphique-et-outils)).
