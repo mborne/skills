@@ -4,17 +4,18 @@
     "name": "Mickael Borne"
   },
   "metadata": {
-    "description": "Skills de Mickael Borne",
+    "description": "Skills expérimentales de Mickael Borne",
     "version": "0.1.0"
   },
   "plugins": [
     {
       "name": "mborne-skills",
-      "description": "Collection de skills : marp-geodata (présentations Marp à la charte Géodata Paris).",
+      "description": "Collection de skills : marp-geodata (présentations Marp à la charte Géodata Paris), uv-pytorch-cuda (projets uv avec PyTorch sur GPU CUDA).",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/marp-geodata"
+        "./skills/marp-geodata",
+        "./skills/uv-pytorch-cuda"
       ]
     }
   ]
