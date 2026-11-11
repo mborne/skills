@@ -20,6 +20,7 @@ pour Claude Code / Claude.
 | Skill | Description |
 | --- | --- |
 | [marp-geodata](skills/marp-geodata/README.md) | Présentations [Marp](https://marp.app/) conformes à la [charte graphique de Géodata Paris](https://geodata-paris.fr/fr/charte-graphique-et-outils) (thème `geodata` + règles d'écriture de la marque). |
+| [uv-pytorch-cuda](skills/uv-pytorch-cuda/README.md) | Projets [uv](https://docs.astral.sh/uv/) installant PyTorch sur GPU CUDA (index `download.pytorch.org` explicite, `tool.uv.sources`, variantes CPU/ROCm/XPU), d'après [Using uv with PyTorch](https://docs.astral.sh/uv/guides/integration/pytorch/). |
 
 ## Installation
 
